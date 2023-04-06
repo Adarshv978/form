@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0,user-scalable=no">
+    <title>Form</title>
+    <link rel="icon" href="img/88450.png" type="image/icon type">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/intlTelInput.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body style="background-image: url(img/images.jpg); object-fit: cover; overflow: hidden;">
+    <form action="/build/message.html" name="myform" onsubmit="return validation(e) "  method="post">
+        <div class="text" style=" text-align: center;">
+            <h1 style="font-size: 35px; color: blue;">Registratio Form</h1>
+            <p style="font-size: 22px; ">Complete the form below and press the submit button</p>
+        </div>
+        <div class="container">
+            <div class="part1">
+                <input type="text" name="fname" id="firstName" placeholder="Full Name" autocomplete="off"><b><span
+                        id="efname" style="color: red;"></span></b>
+                <input type="text" name="fatherName" id="fatherName" placeholder="Father Name"><b><span id="efatherName"
+                        style="color: red;"></span></b>
+                <input type="email" name="email" id="email" placeholder="Your Email Address"><b><span id="eemail"
+                        style="color: red;"></span></b>
+                <div style="margin-top: 5%;">
+                    <label for="" style="margin-top: 5%;">Date of Birth:</label>
+                    <input type="date" name="dateOfBirth" id="dateOfBirth"><b><span  id="edateOfBirth"
+                            style="color: red;"></span></b>
+                </div>
+                <div style="margin-top: 5%;">
+                    <input type="tel" id="phone" placeholder="Phone Number"><b><span id="ephone"
+                            style="color: red;"></span></b>
+
+                </div>
+            </div>
+            <div class="part2">
+                <Label style="font-size: 35px;">Gender</Label>
+                <div
+                    style="width: 100%; height: 50px; background-color: white; border: 2px solid black; border-radius: 10px; margin-top: 5%;">
+                    Male:<input type="radio" name="gender" id="male" value="male"><b><span id="emale"
+                            style="color: green;"></span></b>
+                    <!-- <label for="">:Male</label> -->
+
+                </div>
+                <div
+                    style="width: 100%; height: 50px; background-color: white; border: 2px solid black; border-radius: 10px; margin-top: 2%;">
+                    Felame:<input type="radio" name="gender" id="female" value="female" class="checkbox"><b><span
+                            id="efemale" style="color: green;"></span></b>
+                    <!-- <label for="">:Female</label> -->
+
+                </div>
+
+                <div class="idcard" style="margin-top: 5%;">
+
+                    <label for=""> <b> Enter Id Card No In Given Formate</b></label>
+                    <div class="idcardinp">
+                        <input type="text" class="checkbox" pattern="^[0-9]{4}$" id="icard1"
+                            title="You Have Allowed Only 4 Digit Number" placeholder="####" style="width: 25%;" required>
+                        <input type="text" class="checkbox" pattern="^[0-9]{6}$" id="icard2"
+                            title="You Have Allowed Only 6 Digit Number" placeholder="######" style="width: 30%;" required>
+                        <input type="text" class="checkbox" pattern="^[0-9]{1}$" id="icard3"
+                            title="You Have Allowed Only 1 Digit Number" placeholder="#" style="width: 10%; " required>
+                    </div>
+                </div>
+
+                <div class="uploadfile" style="margin-top: 5%;">
+                    <label for="">Upload Files</label>
+                    <input type="file">
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="btn">
+            <button type="submit">Submit</button>
+        </div>
+
+
+
+
+
+    </form>
+
+
+    <script src="js/intlTelInput.js"></script>
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {});
+
+
+
+
+        var firstName = document.getElementById("firstName");
+
+
+
+        var fatherName = document.getElementById("fatherName");
+        var email = document.getElementById("email");
+        var dob = document.getElementById("dateOfBirth");
+        var phone = document.getElementById("phone");
+
+
+        var male = document.getElementById("male");
+        var female = document.getElementById("female");
+
+
+        var idcard1 = document.getElementById("icard1");
+        var idcard2 = document.getElementById("icard2");
+        var idcard3 = document.getElementById("icard3");
+        
+        var date =new Date()
+        console.log(date.toLocaleDateString())
+
+
+
+        
+
+
+
+    
+       
+
+        
+       
+        
+
+
+
+
+
+
+
+
+        function validation() {
+
+
+            if (firstName.value == "") {
+                document.getElementById("efname").innerHTML = " **Please fill the First Name Field";
+                return false;
+            }
+            if ((firstName.value.length <= 2) || (firstName.value.length >= 20)) {
+                document.getElementById("efname").innerHTML = "** First Name length cant't be less than 2 and more than 20";
+                return false;
+            }
+
+            if (!isNaN(firstName.value)) {
+                document.getElementById("efname").innerHTML = "** Numbers are not allowed";
+                return false;
+            }
+
+
+
+
+
+            if (fatherName.value == "") {
+                document.getElementById("efatherName").innerHTML = " **Please fill the Father Name Field";
+                return false;
+            }
+            if ((fatherName.value.length <= 2) || (fatherName.value.length >= 20)) {
+                document.getElementById("efatherName").innerHTML = "** Father Name length cant't be less than 2 and more than 20";
+                return false;
+            }
+
+            if (!isNaN(fatherName.value)) {
+                document.getElementById("efatherName").innerHTML = "** Numbers are not allowed";
+                return false;
+            }
+
+
+
+
+
+
+
+            if (email.value == "") {
+                document.getElementById("eemail").innerHTML = " **Please fill the email Field";
+                return false;
+            }
+
+            if ((email.value.length < 5) || (email.value.length > 25)) {
+                document.getElementById("eemail").innerHTML = " **email length can't be less than 5 and greater than 25 ";
+                return false;
+            }
+
+            if (email.value.indexOf("@")<=0) {
+                document.getElementById("eemail").innerHTML = " ** @invalid position.. ";
+                return false;
+            }
+
+            if( (email.value.charAt(email.value.length-4)!='.') && (email.value.charAt(email.value.length-3)!='.')) {
+                document.getElementById("eemail").innerHTML = " **  . is invalid position ";
+                return false;
+            }
+
+
+
+
+            // if(dob==new Date()){
+            //     document.getElementById("edateOfBirth").innerHTML = " **  . is invalid position ";
+            //     return false;
+
+            // }
+
+
+
+            if (phone.value.length < 10) {
+                document.getElementById("ephone").innerHTML = " **Phone Number Should be 10 digit...";
+                return false;
+            }
+            if (isNaN(phone.value)) {
+                document.getElementById("ephone").innerHTML = "Characters are Not allowed..";
+                return false;
+            }
+
+
+
+
+            if (male.checked == true) {
+                document.getElementById("emale").innerHTML = "You have Checked Male .. ";
+
+                return true;
+
+            } else if (female.checked == true) {
+                document.getElementById("efemale").innerHTML = "You have Checked Female..";
+                return true
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
